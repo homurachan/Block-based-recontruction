@@ -218,10 +218,11 @@ def main():
 
 #	To run this, you need an EMAN or EMAN2 input list file, or you can simply use JSPR package.
 #	df_old is the parameter "defocus=df", euler_tmp is "euler=a,b,c", and center_tmp is "center=x,y" in the input list.
-#	The debug option is for handness, to our experiences, if the handness is correct, use "1", else use "0".
-#	Because handness comes from intergration along z-axis, and defocus is in fact a Z-direction distance.
-#	It's easier to check the handness just by using the output to do a 3d reconstruction, then calculate FSC.
-#	If handness is wrong, FSC in high frequency range should oscillate significantly (Since you use the wrong defocus).
+#	The debug option is for handedness, to our experiences, if the handedness is correct, use "1", else use "0".
+#	Because handedness comes from intergration along z-axis, and defocus is in fact a Z-direction distance.
+#	It's easier to check the handedness just by using the output to do a 3d reconstruction, then calculate FSC.
+#	If handedness is wrong, FSC in high frequency range should oscillate significantly (Since you use the wrong defocus),
+#	or in worse cases better FSC is just a bit higher than the wrong one.
 #	Input x,y,z is a set of 3d coordinate which you can pick one from 3d model.
 #	ysize is the original 3d model's size in pixel. For example, for an 1200*1200*1200 model you should use 1200.
 #	If the model is not icoshedral symmetry, use these euler angle list below:
