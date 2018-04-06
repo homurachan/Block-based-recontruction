@@ -62,5 +62,4 @@ def parse_command_line():
 if __name__== "__main__":
 	main()
 
-
-			
+#	The metadata is in to_add_star_metadata.txt	
