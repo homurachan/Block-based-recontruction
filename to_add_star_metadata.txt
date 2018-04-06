@@ -1,0 +1,28 @@
+
+data_
+
+loop_ 
+_rlnMicrographName #1 
+_rlnCoordinateX #2 
+_rlnCoordinateY #3 
+_rlnImageName #4 
+_rlnDefocusU #5 
+_rlnDefocusV #6 
+_rlnDefocusAngle #7 
+_rlnVoltage #8 
+_rlnSphericalAberration #9 
+_rlnAmplitudeContrast #10 
+_rlnMagnification #11 
+_rlnDetectorPixelSize #12 
+_rlnCtfFigureOfMerit #13 
+_rlnGroupNumber #14 
+_rlnAngleRot #15 
+_rlnAngleTilt #16 
+_rlnAnglePsi #17 
+_rlnOriginX #18 
+_rlnOriginY #19 
+_rlnClassNumber #20 
+_rlnNormCorrection #21 
+_rlnLogLikeliContribution #22 
+_rlnMaxValueProbDistribution #23 
+_rlnNrOfSignificantSamples #24 
