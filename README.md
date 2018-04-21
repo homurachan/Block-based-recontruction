@@ -1,7 +1,8 @@
 # Block-based-recontruction
 Scripts and sources of the block-based reconstruction/refinement
 These script and codes are under Do What The Fuck You Want To Public License (or maybe GPL-3.0 as required by the editor).
-Please cite our paper if our block-based reconstruction idea or these shitty codes work.
+Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
+if our block-based reconstruction idea or these shitty codes work.
 
 	To compile the C codes, you should have installed EMAN 1.9. Also check your g++ version, 4.8 and 5.x works fine to me, but 6.3 occurs errors.
 	For example, use "g++ addup_many_part_into_full_icos.c -o addup_many_part_into_full_icos -IwhereyouinstallEMAN/include whereyouinstallEMAN/lib/libEM.so" to complie.
