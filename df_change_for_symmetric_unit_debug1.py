@@ -242,16 +242,42 @@ def main():
 #		else:
 #			Dn[i]=i*360./(n)
 #	sym_num=DN
+	test=str(inlst_line[0].split()[0])
+	start=3
+	if(test=="#LST"):
+		start=1
+	len_len=int(len(inlst_line[start].split()))
+	warning=0
+	for j in range (2,len_len):
+		tmp=str((inlst_line[start].split()[j]).split('=')[0])
+		if(tmp=="defocus"):
+			defocus_pos=j
+			warning+=1
+		elif(tmp=="dfdiff"):
+			dfdiff_pos=j
+			warning+=1
+		elif(tmp=="dfang"):
+			dfang_pos=j
+			warning+=1
+		elif(tmp=="euler"):
+			euler_pos=j
+			warning+=1
+		elif(tmp=="center"):
+			center_pos=j
+			warning+=1
+	if(warning<5):
+		print("Your list file lacks of critical component such as defocus values. EXIT now.")
+		os._exit(0)
 
-	for i in range(3,len(inlst_line)):
+	for i in range(start,len(inlst_line)):
 #	for i in range(3,4):
-		df_old=float((inlst_line[i].split()[2]).split('=')[1])
+		df_old=float((inlst_line[i].split()[defocus_pos]).split('=')[1])
 
-		euler_tmp=(inlst_line[i].split()[9]).split('=')[1]
+		euler_tmp=(inlst_line[i].split()[euler_pos]).split('=')[1]
 		euler1=float(euler_tmp.split(',')[0])/180*PI
 		euler2=float(euler_tmp.split(',')[1])/180*PI
 		euler3=float(euler_tmp.split(',')[2])/180*PI
-		center_tmp=(inlst_line[i].split()[10]).split('=')[1]
+		center_tmp=(inlst_line[i].split()[center_pos]).split('=')[1]
 		center1=float(center_tmp.split(',')[0])
 		center2=float(center_tmp.split(',')[1])
 
@@ -329,16 +355,20 @@ def main():
 			else:
 				new_z_df=-1*new_z*apix/10000+df_old
 	#		new_z_df=df_old
-			for j in range (0,2):
-				r.write(str(inlst_line[i].split()[j])+"\t")
-			r.write("defocus="+str(new_z_df)+"\t")
-			for j in range (3,9):
-				r.write(str(inlst_line[i].split()[j])+"\t")
-			r.write("euler="+str(new_euler1/PI*180)+","+str(new_euler2/PI*180)+","+str(new_euler3/PI*180)+"\t")
-			r.write("center="+str(pic_x)+","+str(pic_y)+"\t")
-			for j in range (11,14):
-				r.write(str(inlst_line[i].split()[j])+"\t")
-			r.write(str(inlst_line[i].split()[14])+"\n")
+			for j in range (0,len_len):
+				if(j==defocus_pos):
+					r.write("defocus="+str(new_z_df))
+				elif(j==euler_pos):
+					r.write("euler="+str(new_euler1/PI*180)+","+str(new_euler2/PI*180)+","+str(new_euler3/PI*180))
+				elif(j==center_pos):
+					r.write("center="+str(pic_x)+","+str(pic_y))
+				else:
+					r.write(str(inlst_line[i].split()[j]))
+				if(j!=len_len-1):
+					r.write("\t")
+				else:
+					r.write("\n")
+
 
 	g.close()
 	r.close()
