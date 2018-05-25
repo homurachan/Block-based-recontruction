@@ -55,7 +55,7 @@ def main():
 		apix_c=14/apix_c
 		r.write(filename+"\t")
 		r.write(str(center1)+"\t"+str(center2)+"\t")
-		r.write("%06d" % i-start+1)
+		r.write("%06d" % (i-start+1))
 		r.write("@"+filename+"\t")
 		r.write(str(dfu)+"\t"+str(dfv)+"\t"+str(dfang)+"\t")
 		r.write(str(voltage)+"\t"+str(cs)+"\t0.100000\t"+str(apix_c)+"\t14.000000\t")
