@@ -13,9 +13,9 @@ if our block-based reconstruction idea or these codes work.
 
 	1. You need a full-size model (can be from relion) and particles set in EMAN or EMAN2 list form by executing "./relion2lst.py refined_starfile.star --lst anyname.lst" . Make sure to use the relion2lst.py in this folder.
 	
-#	2. If the symmetry is icos, convert the "anyname.lst" to correct EMAN list by doing: "./change_I3_sym_to_EMAN_angle.py anyname.lst anyname2.lst". If the symmetry is not icosahedral, do not do this step.
+	2. If the symmetry is icos, convert the "anyname.lst" to correct EMAN list by doing: "./change_I3_sym_to_EMAN_angle.py anyname.lst anyname2.lst". If the symmetry is not icosahedral, do not do this step.
 	
-#	3. Split the EMAN list file to even/odd cession by doing "./relion2lst_even_odd.py refined_starfile.star m+4 anyname2.lst odd_name.lst even_name.lst". To determine m, head the star file, the FINAL line of metadata is something like "_rlnRandomSubset #29" or "_rlnNrOfSignificantSamples #24" , m=29 or m=24.
+	3. Split the EMAN list file to even/odd cession by doing "./relion2lst_even_odd.py refined_starfile.star m+4 anyname2.lst odd_name.lst even_name.lst". To determine m, head the star file, the FINAL line of metadata is something like "_rlnRandomSubset #29" or "_rlnNrOfSignificantSamples #24" , m=29 or m=24.
 
 	4. Find certain points in the model (x0,y0,z0), assuming the origin of coordinates is (nx/2,ny/2,nz/2). e.g., for a 300*300*300 map, the center of map is (150,150,150)
 
@@ -38,12 +38,20 @@ if our block-based reconstruction idea or these codes work.
   
 	More information can be found in each file.
 
-09.03.2019 added:
+#	09.03.2019 added:
+
 	In for_straight_forward_relion folder you can find scripts to write a star file bypassing EMAN2 or JSPR processing.
+	
 	You HAVE TO USE "I3" symmetry in relion.
+	
 	1. From a original star file, excuting "./relion2lst_nooutput.py a.star --lst ANYNAME.lst --allrelion 1 --ny RELION_BOXSIZE". This script requires EMAN2 installed.
+	
 	2. Executing "./change_I3_sym_to_EMAN_angle_v3 ANYNAME.lst ANYNAME_2.lst" to change from I3 sym to EMAN system.
+	
 	3. Just like step 5 above.
+	
 	4. Executing "./jspr_refine_2_relion_nofilename_for_relion.py ANYNAME_2.lst RELION_BOXSIZE tmp.star"
+	
 	5. 'cat ./to_add_star_metadata_v2.txt tmp.star >> final.star'
+	
 	The "final.star" can be used in relion 2 or 3 as "Refined particles STAR file" at "Particle extraction". The rest is conventional way to do SPA.
