@@ -42,7 +42,7 @@ if our block-based reconstruction idea or these codes work.
 
 	In for_straight_forward_relion folder you can find scripts to write a star file bypassing EMAN2 or JSPR processing.
 	
-	You HAVE TO USE "I3" symmetry in relion.
+#	You HAVE TO USE "I3" symmetry in relion. The model from relion_reconstruct should be processed by 'proc3d model.mrc model_rot.mrc rot=0,180,0' to get a map corresponding to EMAN's icosahedral system.
 	
 	1. From a original star file, excuting "./relion2lst_nooutput.py a.star --lst ANYNAME.lst --allrelion 1 --ny RELION_BOXSIZE". This script requires EMAN2 installed.
 	
