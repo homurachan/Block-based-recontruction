@@ -42,9 +42,11 @@ if our block-based reconstruction idea or these codes work.
 
 	In for_straight_forward_relion folder you can find scripts to write a star file bypassing EMAN2 or JSPR processing.
 	
-	You HAVE TO USE "I3" symmetry in relion. The model from relion_reconstruct should be processed by 'proc3d model.mrc model_rot.mrc rot=0,180,0' to get a map corresponding to EMAN's icosahedral system.
+	You HAVE TO USE "I3" symmetry in relion. The model from relion_reconstruct should be processed by
+	'proc3d model.mrc model_rot.mrc rot=0,180,0' to get a map corresponding to EMAN's icosahedral system.
 	
-	1. From a original star file, excuting "./relion2lst_nooutput.py a.star --lst ANYNAME.lst --allrelion 1 --ny RELION_BOXSIZE". This script requires EMAN2 installed.
+	1. From a original star file, excuting "./relion2lst_nooutput.py a.star --lst ANYNAME.lst --allrelion 1 --ny RELION_BOXSIZE".
+	This script requires EMAN2 being installed.
 	
 	2. Executing "./change_I3_sym_to_EMAN_angle_v3.py ANYNAME.lst ANYNAME_2.lst" to change from I3 sym to EMAN system.
 	
@@ -54,6 +56,8 @@ if our block-based reconstruction idea or these codes work.
 	
 	5. 'cat ./to_add_star_metadata_v2.txt tmp.star >> final.star'
 	
-	6. './check_sub_particle_position.py final.star 30 CAMERA_NX CAMERA_NY final_check.star' In case some sub-particles lie outside of the micrograph and induce "...particle lies completely outside of micrograph" error in relion.
+	6. './check_sub_particle_position.py final.star 30 CAMERA_NX CAMERA_NY final_check.star' In case some sub-particles lie
+	outside of the micrograph and induce "...particle lies completely outside of micrograph" error in relion.
 	
-	The "final_check.star" can be used in relion 2 or 3 as "Refined particles STAR file" at "Particle extraction". The rest is conventional way to do SPA.
+	The "final_check.star" can be used in relion 2 or 3 as "Refined particles STAR file" at "Particle extraction".
+	The rest is conventional way to do SPA.
