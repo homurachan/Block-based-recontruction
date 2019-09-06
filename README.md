@@ -46,7 +46,7 @@ if our block-based reconstruction idea or these codes work.
 	
 	1. From a original star file, excuting "./relion2lst_nooutput.py a.star --lst ANYNAME.lst --allrelion 1 --ny RELION_BOXSIZE". This script requires EMAN2 installed.
 	
-	2. Executing "./change_I3_sym_to_EMAN_angle_v3 ANYNAME.lst ANYNAME_2.lst" to change from I3 sym to EMAN system.
+	2. Executing "./change_I3_sym_to_EMAN_angle_v3.py ANYNAME.lst ANYNAME_2.lst" to change from I3 sym to EMAN system.
 	
 	3. Just like step 5 above.
 	
@@ -54,4 +54,6 @@ if our block-based reconstruction idea or these codes work.
 	
 	5. 'cat ./to_add_star_metadata_v2.txt tmp.star >> final.star'
 	
-	The "final.star" can be used in relion 2 or 3 as "Refined particles STAR file" at "Particle extraction". The rest is conventional way to do SPA.
+	6. './check_sub_particle_position.py final.star 30 CAMERA_NX CAMERA_NY final_check.star' In case some sub-particles lie outside of the micrograph and induce "...particle lies completely outside of micrograph" error in relion.
+	
+	The "final_check.star" can be used in relion 2 or 3 as "Refined particles STAR file" at "Particle extraction". The rest is conventional way to do SPA.
