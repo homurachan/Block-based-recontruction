@@ -33,11 +33,10 @@ def main():
 			for j in range(0,xx):
 				if(j!=line_index):
 					tmp+=str(instar_line[i].split()[j])
-							
-					if(j!=xx-1):
-						tmp+="\t"
-					else:
-						tmp+="\n"
+				if(j!=xx-1 and j!=line_index):
+					tmp+="\t"
+				if(j==xx-1):
+					tmp+="\n"
 			out.write(tmp)
 		
 	out.close()
