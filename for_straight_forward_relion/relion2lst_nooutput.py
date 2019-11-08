@@ -74,8 +74,8 @@ will be extracted from the STAR file and will be automatically processed through
 	
 	topdir = os.path.dirname(inputStarFileName)
 
-	try: os.mkdir("particles")
-	except: pass
+#	try: os.mkdir("particles")
+#	except: pass
 
 	if options.verbose>0:
 		print "Parsing STAR file %s" % (inputStarFileName)
