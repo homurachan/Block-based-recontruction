@@ -68,6 +68,7 @@ if our block-based reconstruction idea or these codes work.
 	1. From a original star file, excuting "./relion2lst_nooutput.py a.star --lst ANYNAME.lst --allrelion 1 --ny RELION_BOXSIZE".
 	This script requires EMAN2 being installed.
 	
-	2. e.g. A C3 protein should run this: "df_change_for_symmetric_unit_debug1_for_relion_Cn_Dn.py ANYNAME.lst X Y Z pixel_size box_size ANYNAME_2.lst C 3 2". For small proteins, I suggest not to use block defoci for blocks.
+	2. e.g. A C3 protein should run this: "df_change_for_symmetric_unit_debug1_for_relion_Cn_Dn.py ANYNAME.lst X Y Z pixel_size box_size ANYNAME_2.lst C 3 2".
+	For small proteins, I suggest not to use block defoci for blocks.
 	
 	3. The same as step 3/4/5/6 above.
