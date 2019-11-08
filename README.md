@@ -52,7 +52,7 @@ if our block-based reconstruction idea or these codes work.
 	
 	3. Just like step 5 above.
 	
-	4. Executing "./jspr_refine_2_relion_nofilename_for_relion.py ANYNAME_2.lst RELION_BOXSIZE tmp.star"
+	4. Executing "./jspr_refine_2_relion_nofilename_for_relion.py output_by_step3.lst RELION_BOXSIZE tmp.star"
 	
 	5. 'cat ./to_add_star_metadata_v2.txt tmp.star >> final.star'
 	
