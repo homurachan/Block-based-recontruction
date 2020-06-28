@@ -20,7 +20,7 @@ Run the suggested command of split_star_for_preprocessing.py to combine the proc
 
 The runort file can be run by runpar of EMAN, or other program.
 
-2.	If you have the micrograph, use "for_straightforward_relion_v2/BBR_with_relion_v8_has_micrograph.py" and use the output result as "Refined particles STAR file" on I/O of Particle extraction. Please set re-center refined coordinates to (0,0,0).
+2.	If you have the micrograph, use "for_straightforward_relion_v2/BBR_with_relion_v8.py" and use the output result as "Refined particles STAR file" on I/O of Particle extraction. Please set re-center refined coordinates to (0,0,0).
 
 3.	Reconstruct the combined star file by relion_reconstruct --i COMBINED.STAR --ctf --sym c1 --subset 1/2 --o half1/half2.mrc . Calculated the FSC curve.
 You can run 'read_block_based_debug_delta_z_invert_handerness.py' to test the handerness of the reconstruced maps. Keep the one with higher FSC.
