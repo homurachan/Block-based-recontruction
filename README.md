@@ -4,6 +4,28 @@ These scripts and codes are under WTFPL verion 2 license, a GPL-campatible free 
 Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 if our block-based reconstruction idea or these codes work.
 
+# Updated 06.28.2020
+
+As everyone hates JSPR, I uploaded a modified relion 3.0.8 version to perform block refinement under the folder for_straightforward_relion_v2. Just download the relion-3.0.8_modi_able_to_write_subparticle.zip, decompress and compile just the same as relion does. It works like original relion v3.0.8 other than relion_preprocess, I also add 2 metadata lable "rlnDeltaZ" and "rlnParticleSerialNumber". Remember to remove these columns if you wish to use the star file on original relion.
+	
+1.	If you only have the particle images, use "for_straightforward_relion_v2/BBR_with_relion_v8.py"
+The usage is 'python ./BBR_with_relion_v8.py INPUT.STAR Point_X Point_Y Point_Z PARTICLE_BOXSIZE OUTPUT.STAR HANDERNESS_OPTION MICROGRAPH_SIZE_X MICROGRAPH_SIZE_Y SYM'
+
+A=(Point_X, Point_Y, Point_Z) is a 3D coordinate of the reconstructed map. the origin of A is (PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2) . MICROGRAPH_SIZE_X/Y are needed to drop subparticles lay outside of the micrograph (Most of them would be 0-value and unusable). Current supported symmetry is C-n / D-n and I3 symmetry.
+
+Then use 'python ./split_star_for_preprocessing.py OUTPUT.STAR PATCH_NUM ROOT_NAME BLOCK_SIZE RUNORT_FILE_NAME' to split the OUTPUT.STAR. Because particle operation of relion_preprocess cannot be run by relion_preprocess_mpi, we have to split the star file to run the preprocessing parallelly. 
+Run the suggested command of split_star_for_preprocessing.py to combine the processed stack star files.
+
+The runort file can be run by runpar of EMAN, or other program.
+
+2.	If you have the micrograph, use "for_straightforward_relion_v2/BBR_with_relion_v8_has_micrograph.py" and use the output result as "Refined particles STAR file" on I/O of Particle extraction. Please set re-center refined coordinates to (0,0,0).
+
+3.	Reconstruct the combined star file by relion_reconstruct --i COMBINED.STAR --ctf --sym c1 --subset 1/2 --o half1/half2.mrc . Calculated the FSC curve.
+You can run 'read_block_based_debug_delta_z_invert_handerness.py' to test the handerness of the reconstruced maps. Keep the one with higher FSC.
+
+4.	Just ordinary single particle analysis.
+
+# OLD
 	To compile the C codes, you should have installed EMAN 1.9. Also check your g++ version, 4.8 and 5.x works fine to me, but 6.3 occurs errors.
 	For example, use "g++ addup_many_part_into_full_icos.c -o addup_many_part_into_full_icos -IwhereyouinstallEMAN/include whereyouinstallEMAN/lib/libEM.so" to complie.
 
