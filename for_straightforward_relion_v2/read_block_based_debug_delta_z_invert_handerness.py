@@ -52,7 +52,7 @@ def main():
 	aa.close()
 	
 def parse_command_line():
-	usage="%prog <input list> <output>"
+	usage="%prog <input star> <output star>"
 	parser = OptionParser(usage=usage, version="%1")
 	
 	if len(sys.argv)<3: 
