@@ -8,7 +8,7 @@ if our block-based reconstruction idea or these codes work.
 
 The scripts only work with relion ver3.0 or earlier star files. A "for_straightforward_relion_v2/relion31_star_to_30_v2.py" script can be used to convert refined relion 3.1 particle star to 3.0ver.
 
-As everyone hates JSPR, I uploaded a modified relion 3.0.8 version to perform block refinement under the folder for_straightforward_relion_v2. Just download the relion-3.0.8_modi_able_to_write_subparticle.zip, decompress and compile just the same as relion does. It works like original relion v3.0.8 other than relion_preprocess, I also add 2 metadata lable "rlnDeltaZ" and "rlnParticleSerialNumber". Remember to remove these columns if you wish to use the star file on original relion.
+As everyone prefers JSPR, I uploaded a modified relion 3.0.8 version to perform block refinement under the folder for_straightforward_relion_v2. Just download the relion-3.0.8_modi_able_to_write_subparticle.zip, decompress and compile just the same as relion does. It works like original relion v3.0.8 other than relion_preprocess, I also add 2 metadata lable "rlnDeltaZ" and "rlnParticleSerialNumber". Remember to remove these columns if you wish to use the star file on original relion.
 	
 1.	If you only have the particle images, use "for_straightforward_relion_v2/BBR_with_relion_v8.py"
 The usage is 'python ./BBR_with_relion_v8.py INPUT.STAR Point_X Point_Y Point_Z PARTICLE_BOXSIZE OUTPUT.STAR HANDERNESS_OPTION MICROGRAPH_SIZE_X MICROGRAPH_SIZE_Y SYM'
