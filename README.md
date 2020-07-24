@@ -13,7 +13,7 @@ As everyone prefers relion rather than JSPR, I uploaded a modified relion 3.0.8 
 1.	If you only have the particle images, use "for_straightforward_relion_v2/BBR_with_relion_v8.py"
 The usage is 'python ./BBR_with_relion_v8.py INPUT.STAR Point_X Point_Y Point_Z PARTICLE_BOXSIZE OUTPUT.STAR HANDERNESS_OPTION MICROGRAPH_SIZE_X MICROGRAPH_SIZE_Y SYM'
 
-A=(Point_X, Point_Y, Point_Z) is a 3D coordinate of the reconstructed map. the origin of A is (PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2) . MICROGRAPH_SIZE_X/Y are needed to drop subparticles lay outside of the micrograph (Most of them would be 0-value and unusable). Current supported symmetry is C-n / D-n and I3 symmetry.
+A=(Point_X, Point_Y, Point_Z) is a 3D coordinate of the reconstructed map. The map should follow EMAN coordinates. The EMAN coordinates are the same as relion's spider coordiantes other than I3-sym. You have to use EMAN's 'proc3d map.mrc output.mrc rot=0,180,0' to convert I3-map to EMAN's icosahedral map, then to find A=(X,Y,Z). The origin of A is (PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2) . MICROGRAPH_SIZE_X/Y are needed to drop subparticles lay outside of the micrograph (Most of them would be 0-value and unusable). Current supported symmetry is C-n / D-n and I3 symmetry.
 
 PS. One of the very easy way to find a certain point of the map is to use UCSF Chimera's volume eraser. Firstly erasing the wanted point with a large enough sphere, saving the map, then using 'v2 yoursave.mrc' command of EMAN package, middle clicking the map, finding coordinates of the center of the erased sphere. Those can be used for my script directly.
 
@@ -44,7 +44,7 @@ Old readme.md moved to readme.old
 1.	如果仅有particle文件,使用"for_straightforward_relion_v2/BBR_with_relion_v8.py"
 使用方法'python ./BBR_with_relion_v8.py INPUT.STAR 点X 点Y 点Z PARTICLE_BOXSIZE OUTPUT.STAR 手性选择 MICROGRAPH_SIZE_X MICROGRAPH_SIZE_Y 对称性'
 
-A=(点X, 点Y, 点Z) 是属于3D重构的坐标. 点A的原点是(PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2) . MICROGRAPH_SIZE_X/Y用来丢弃跑到micrograph外面的块,在只有半个病毒的时候比较有用. 目前支持C-n / D-n 和I3对称,未来可能增加I1对称,因为绝大多数人偏好用I1,但其实对结果无任何影响.
+A=(点X, 点Y, 点Z) 是属于3D重构的坐标. 点A的原点是(PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2, PARTICLE_BOXSIZE/2) . MICROGRAPH_SIZE_X/Y用来丢弃跑到micrograph外面的块,在只有半个病毒的时候比较有用. 目前支持C-n / D-n 和I3对称,未来可能增加I1对称,因为绝大多数人偏好用I1,但其实对结果无任何影响.点A必须遵守EMAN坐标,对于C/D对称,EMAN坐标与relion的spider坐标相同.对于I3对称,在找点前必须用EMAN的proc3d进行'proc3d relion.mrc output.mrc rot=0,180,0'将图转换至EMAN的icosahedral坐标,才能用v2找点.
 
 注: 一种简单的找点方法是使用UCSF Chimera的volume eraser. 首先擦除掉想要的点,保存,可以使用EMAN的'v2 yoursave.mrc',中键点击打开的图,看被擦除的坐标.这些坐标能被我的脚本直接使用.
 
