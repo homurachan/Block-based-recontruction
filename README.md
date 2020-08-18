@@ -3,6 +3,9 @@ Scripts and sources of the block-based reconstruction/refinement
 These scripts and codes are under WTFPL verion 2 license, a GPL-campatible free license.
 Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 if our block-based reconstruction idea or these codes work.
+# Updated 08.18.2020
+
+Added Octane symmetry support at for_straightforward_relion_v2/BBR_with_relion_v9.py .
 
 # Updated 06.28.2020
 
@@ -34,6 +37,10 @@ Old readme.md moved to readme.old
 # 简体中文 分块重构
 包含了分块重构所需的脚本及合并的小程序,遵循WTFPL verion 2 license, a GPL-campatible free license.
 如果这些代码或分块重构算法对你的研究有帮助，请引用: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
+
+# 08.18.2020更新
+
+在for_straightforward_relion_v2/BBR_with_relion_v9.py中增加了对Octane对称性的支持。
 
 # 06.28.2020更新
 
