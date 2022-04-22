@@ -319,10 +319,11 @@ def determin_symmetry(SYMMETRY):
 	if(a=="O"):
 		sym_num=24
 	if(a=="I"):
-		b=int(SYMMETRY[1:])
+		b=int(SYMMETRY[1:]):
 		if(b==3):
 			sym_num=60
-
+		else:
+			print "I3 is the only supported icosahedral symmetry."
 	return (a,sym_num)
 OCT=[]
 for i in range (0,72):
