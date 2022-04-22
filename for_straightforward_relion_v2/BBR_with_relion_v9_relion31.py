@@ -318,8 +318,10 @@ def determin_symmetry(SYMMETRY):
 		sym_num=2*int(SYMMETRY[1:])
 	if(a=="O"):
 		sym_num=24
-	if(a=="I" and b==3):
-		sym_num=60
+	if(a=="I"):
+		b=int(SYMMETRY[1:])
+		if(b==3):
+			sym_num=60
 
 	return (a,sym_num)
 OCT=[]
