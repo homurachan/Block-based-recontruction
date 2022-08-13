@@ -6,6 +6,16 @@ These scripts and codes are under WTFPL verion 2 license, a GPL-campatible free 
 Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 if our block-based reconstruction idea or these codes work.
 
+# Updated 08.13.2022
+
+Created 2 pages in Wiki:
+
+https://github.com/homurachan/Block-based-recontruction/wiki
+
+https://github.com/homurachan/Block-based-recontruction/wiki/How-to-determine-position-of-block
+
+which describe how to combine blocks into full map and how to determine position of block using UCSF Chimera.
+
 # Updated 05.12.2022
 
 Uploaded the modified version of RELION 3.1.2. Now you can do the process within RELION GUI and pipelines.
@@ -72,6 +82,15 @@ Old readme.md moved to readme.old
 包含了分块重构所需的脚本及合并的小程序,遵循WTFPL verion 2 license, a GPL-campatible free license.
 如果这些代码或分块重构算法对你的研究有帮助，请引用: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 
+# 08.13.2022更新
+
+创建了两页Wiki:
+
+https://github.com/homurachan/Block-based-recontruction/wiki
+
+https://github.com/homurachan/Block-based-recontruction/wiki/How-to-determine-position-of-block
+
+分别描述如何把多个重构好的分块合并成一个完整的map；以及如何用Chimera确定每个分块的中心位置。
 
 # 05.12.2022更新
 
