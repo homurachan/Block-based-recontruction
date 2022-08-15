@@ -16,6 +16,10 @@ https://github.com/homurachan/Block-based-recontruction/wiki/How-to-determine-po
 
 which describe how to combine blocks into full map and how to determine position of block using UCSF Chimera.
 
+Uploaded a small dataset of reovirus, which can be used for practicing BBR: 
+
+https://1drv.ms/u/s!AghYYiVwSrFmhAxUTa0swcXgWJn0?e=BnW1bJ , information is inside of the compressed files. micrograph_ctf.star and refine.star are also included.
+
 # Updated 05.12.2022
 
 Uploaded the modified version of RELION 3.1.2. Now you can do the process within RELION GUI and pipelines.
@@ -91,6 +95,11 @@ https://github.com/homurachan/Block-based-recontruction/wiki
 https://github.com/homurachan/Block-based-recontruction/wiki/How-to-determine-position-of-block
 
 分别描述如何把多个重构好的分块合并成一个完整的map；以及如何用Chimera确定每个分块的中心位置。
+
+上传了一个可以用来练习分块重构的reovirus的小数据集: 
+
+https://1drv.ms/u/s!AghYYiVwSrFmhAxUTa0swcXgWJn0?e=BnW1bJ ,包含micrograph_ctf.star和refine.star,其他信息在压缩文件的info里.
+
 
 # 05.12.2022更新
 
