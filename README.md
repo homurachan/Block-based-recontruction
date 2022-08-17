@@ -20,6 +20,8 @@ Uploaded a small dataset of reovirus, which can be used for practicing BBR:
 
 https://1drv.ms/u/s!AghYYiVwSrFmhAxUTa0swcXgWJn0?e=BnW1bJ , information is inside of the compressed files. micrograph_ctf.star and refine.star are also included.
 
+Add feature "--remove_nan" in relion_star_handler, which should be used together with "--discard_on_stats". This options read star files and remove the image item that has infinity or NaN in it. It was inspired by our colleague who suffered from a random blank-micrograph.
+
 # Updated 05.12.2022
 
 Uploaded the modified version of RELION 3.1.2. Now you can do the process within RELION GUI and pipelines.
@@ -100,6 +102,7 @@ https://github.com/homurachan/Block-based-recontruction/wiki/How-to-determine-po
 
 https://1drv.ms/u/s!AghYYiVwSrFmhAxUTa0swcXgWJn0?e=BnW1bJ ,包含micrograph_ctf.star和refine.star,其他信息在压缩文件的info里.
 
+在relion-3.1.2_BBR.zip的relion_star_handler里增加了--remove_nan功能，需与--discard_on_stats连用。作用是读取star文件，把含有无穷大的图像的条目去除，不改变图像。
 
 # 05.12.2022更新
 
