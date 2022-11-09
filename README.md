@@ -3,7 +3,7 @@ Scripts and sources of the block-based reconstruction/refinement.
 
 These scripts and codes are under WTFPL verion 2 license, a GPL-campatible free license.
 
-The modification verion of RELION is under the same license of RELION, which is GPL ver.2.
+The modification version of RELION is under the same license of RELION, which is GPL ver.2.
 
 Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 if our block-based reconstruction idea or these codes work.
