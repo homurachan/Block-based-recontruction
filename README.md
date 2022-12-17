@@ -8,6 +8,14 @@ The modification version of RELION is under the same license of RELION, which is
 Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 if our block-based reconstruction idea or these codes work.
 
+# Updated 12.17.2022
+
+Fix a critical bug that the rlnDefocusU/V would be completely wrong.
+
+Download and reinstall this.
+
+https://github.com/homurachan/Block-based-recontruction/blob/master/relion-3.1.2_BBR.zip
+
 # Updated 10.21.2022
 
 Created a page in Wiki:
@@ -69,9 +77,15 @@ Just ordinary single particle analysis. Remember always use local refinement (In
 包含了分块重构所需的脚本及合并的小程序,遵循WTFPL verion 2 license, a GPL-campatible free license. 改编版RELION遵循GPL ver2 license。
 如果这些代码或分块重构算法对你的研究有帮助，请引用: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 
-# 10.21.2022更新
+# 12.17.2022更新
 
-创建了一页Wiki:
+修正了一个严重bug，当循环时sub-particle的defocusU/V会发生完全错误。
+
+下载并重新安装以下版本。
+
+https://github.com/homurachan/Block-based-recontruction/blob/master/relion-3.1.2_BBR.zip
+
+# 10.21.2022更新创建了一页Wiki:
 
 https://github.com/homurachan/Block-based-recontruction/wiki/How-to-fit-block-into-original-map
 
