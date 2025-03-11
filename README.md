@@ -8,6 +8,18 @@ The modification version of RELION is under the same license of RELION, which is
 Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 if our block-based reconstruction idea or these codes work.
 
+# Updated 03.11.2025
+
+Upload read_star_shift_crop_and_generate_new_star_v3.py . This python script can crop sub-particles directly from particle star. So no micrograph is needed if you don't have.
+
+Python lib requirement: starfile, mrcfile, numpy.
+
+Usage: `python read_star_shift_crop_and_generate_new_star_v3.py --star_name INPUT.star --output_root_name OUTPUT --newboxsize 128 --batchsize 5000`
+
+Run `python read_star_shift_crop_and_generate_new_star_v3.py -h` for help. The batchsize can be larger if you have many RAM. Otherwise ~ 10000 is recommended.
+
+Outputs will be one OUTPUT.star and many OUTPUT_00??.mrcs . Then you can utilize the OUTPUT.star for reconstruction and refinement. This version only supports RELION 3.1 star format (For using the starfile lib)
+
 # Updated 12.17.2022
 
 Fix a critical bug that the rlnDefocusU/V would be completely wrong.
