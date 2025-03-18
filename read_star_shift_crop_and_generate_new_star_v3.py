@@ -67,7 +67,15 @@ if __name__ == "__main__":
 		# Open the corresponding MRC file
 		with mrcfile.mmap(mrc_filename, mode='r') as mrc:
 			image = mrc.data[index]
-
+		## Fix error when some cryosparc images contain only 1D data. Read for the very first one instead.
+		## Since we normally do non-alignment class3D next, the wrong particles will be automatically discarded.
+		try:
+			ysize,xsize=image.shape
+		except:
+			index, mrc_filename = image_names[0].split('@')
+			index = int(index) - 1
+			with mrcfile.mmap(mrc_filename, mode='r') as mrc:
+				image = mrc.data[index]
 		# Get image dimensions
 		if(h<0 and w < 0):
 			h, w = image.shape
