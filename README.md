@@ -1,4 +1,4 @@
-# Block-based-recontruction
+# Block-based Reconstruction
 Scripts and sources of the block-based reconstruction/refinement.
 
 These scripts and codes are under WTFPL verion 2 license, a GPL-campatible free license.
