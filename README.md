@@ -8,6 +8,14 @@ The modification version of RELION is under the same license of RELION, which is
 Please cite our paper: NATURE COMMUNICATIONS (2018) 9:1552 or DOI: 10.1038/s41467-018-04051-9
 if our block-based reconstruction idea or these codes work.
 
+# Updated 07.01.2026
+
+Upload csparc2star_numpy.py, which converts cryosparc .cs files to relion star file. It only requires numpy, not the whole pyem lib to be installed.
+
+Upload read_star_shift_crop_and_generate_new_star_v5_fixed.py It fixes crashes when the particle files are broken.
+
+Update a newer version of for_straightforward_relion_v2/BBR_with_relion_v9_relion31.py. If you don't have RELION-BBR or RELION-SIRM installed, try this.
+
 # Updated 03.11.2025
 
 Upload read_star_shift_crop_and_generate_new_star_v3.py . This python script can crop sub-particles directly from particle star. So no micrograph is needed if you don't have.
