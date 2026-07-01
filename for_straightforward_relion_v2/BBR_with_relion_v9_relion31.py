@@ -39,7 +39,7 @@ def main():
 	DROPPED_SUBPARTICLE=0
 	MLINE=judge_mline0(inlst_line)
 	mline=judge_mline1(inline=inlst_line,start=MLINE)
-	print "Mline="+str(MLINE)+" mline="+str(mline)
+	print ("Mline="+str(MLINE)+" mline="+str(mline))
 	for i in range(0,mline):
 		r.write(str(inlst_line[i]))
 	LAST_METADATA_NUM=int(inlst_line[mline-1].split()[1].split('#')[1])
@@ -54,52 +54,60 @@ def main():
 				NY_index=int(inlst_line[i].split('#')[1])-1
 	apix=float(inlst_line[MLINE].split()[APIX_index])
 	NY=float(inlst_line[MLINE].split()[NY_index])
-	print "apix="+str(apix)+" NY="+str(NY)
-	for i in range(MLINE,mline):
-		if (inlst_line[i].split()):
-			if (str(inlst_line[i].split()[0])=="_rlnImageName"):
-				IMG_index=int(inlst_line[i].split('#')[1])-1		
-			if (str(inlst_line[i].split()[0])=="_rlnDefocusU"):
-				DFU_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnDefocusV"):
-				DFV_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnDefocusAngle"):
-				DFA_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnAngleRot"):
-				ROT_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnAngleTilt"):
-				TILT_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnAnglePsi"):
-				PSI_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnOriginXAngst"):
-				OX_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnOriginYAngst"):
-				OY_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnCoordinateX"):
-				crdX_index=int(inlst_line[i].split('#')[1])-1
-			if (str(inlst_line[i].split()[0])=="_rlnCoordinateY"):
-				crdY_index=int(inlst_line[i].split('#')[1])-1
-#	print IMG_index,DPS_index,MAG_index,DFU_index,DFV_index,DFA_index,ROT_index,TILT_index,PSI_index,OX_index,OY_index
-#	STAR_APIX=float(inlst_line[mline].split()[DPS_index])/float(inlst_line[mline].split()[MAG_index])*1e4
-#	if(apix!=STAR_APIX):
-#		print("Pixel size in the star file is different from input, make sure your star is unbinned. EXIT.")
-#		os._exit(0)
-#	apix=STAR_APIX
+	print ("apix="+str(apix)+" NY="+str(NY))
+	crdX_index = None
+	crdY_index = None
+	for i in range(MLINE, mline):
+		fields = inlst_line[i].split()
+		if not fields:
+			continue
+		label = fields[0]
+		if label == "_rlnImageName":
+			IMG_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnDefocusU":
+			DFU_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnDefocusV":
+			DFV_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnDefocusAngle":
+			DFA_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnAngleRot":
+			ROT_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnAngleTilt":
+			TILT_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnAnglePsi":
+			PSI_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnOriginXAngst":
+			OX_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnOriginYAngst":
+			OY_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnCoordinateX":
+			crdX_index = int(inlst_line[i].split("#")[1]) - 1
+		if label == "_rlnCoordinateY":
+			crdY_index = int(inlst_line[i].split("#")[1]) - 1
+	has_coord_index = (
+		crdX_index is not None
+		and crdY_index is not None
+	)
+	if not has_coord_index:
+		crdX_index = -1
+		crdY_index = -1
+	print(f"has_coord_index = {has_coord_index}")
 	particle_serial_num=0
 	for i in range(mline,len(inlst_line)):
-#	for i in range(3,4):
 		if (inlst_line[i].split()):
 			particle_serial_num+=1
 			dfu=float(inlst_line[i].split()[DFU_index])
 			dfv=float(inlst_line[i].split()[DFV_index])
-		#	df_old=(dfu+dfv)/2.0
 			rot=float(inlst_line[i].split()[ROT_index])
 			tilt=float(inlst_line[i].split()[TILT_index])
 			psi=float(inlst_line[i].split()[PSI_index])
 			ox=float(inlst_line[i].split()[OX_index])/apix
 			oy=float(inlst_line[i].split()[OY_index])/apix
-			crdx=float(inlst_line[i].split()[crdX_index])
-			crdy=float(inlst_line[i].split()[crdY_index])
+			crdx = None
+			crdy = None
+			if has_coord_index:
+				crdx=float(inlst_line[i].split()[crdX_index])
+				crdy=float(inlst_line[i].split()[crdY_index])
 			(euler1_eman,euler2_eman,euler3_eman)=EULER_EMAN(rot,tilt,psi)
 	#		NEED rot=0,180,0 here if full-particles match I3 sym
 			if(symmetry_type=="I" and sym_num==60):
@@ -205,11 +213,12 @@ def main():
 				#check subparticle center position is inside of the micrograph
 				new_ox=NY/2.0-pic_x
 				new_oy=NY/2.0-pic_y
-				tmpx=crdx-new_ox
-				tmpy=crdy-new_oy
-				if(tmpx<0.0 or tmpx>MNX or tmpy<0.0 or tmpy>MNY):
-					DROPPED_SUBPARTICLE+=1
-					continue
+				if has_coord_index:
+					tmpx=crdx-new_ox
+					tmpy=crdy-new_oy
+					if(tmpx<0.0 or tmpx>MNX or tmpy<0.0 or tmpy>MNY):
+						DROPPED_SUBPARTICLE+=1
+						continue
 				tmp=""
 				xx=len(inlst_line[i].split())
 				for j in range(0,xx):
@@ -232,10 +241,11 @@ def main():
 						tmp+=str(round(new_ox)*apix)
 					if(j==OY_index):
 						tmp+=str(round(new_oy)*apix)
-					if(j==crdX_index):
-						tmp+=str(crdx)
-					if(j==crdY_index):
-						tmp+=str(crdy)
+					if has_coord_index:
+						if(j==crdX_index):
+							tmp+=str(crdx)
+						if(j==crdY_index):
+							tmp+=str(crdy)
 					if(j!=xx-1):
 						tmp+="\t"
 					if(j==xx-1):
@@ -251,7 +261,7 @@ def parse_command_line():
 	parser = OptionParser(usage=usage, version="%1")
 	
 	if len(sys.argv)<10: 
-		print "<input star> <point x> <point y> <point z> <output> <DEBUG, plus=1, minus=0, nochange=2> <micrograph nx> <micrograph ny> <Symmetry>\nSupported symmetry is Cn, Dn, O and I3"
+		print ("<input star> <point x> <point y> <point z> <output> <DEBUG, plus=1, minus=0, nochange=2> <micrograph nx> <micrograph ny> <Symmetry>\nSupported symmetry is Cn, Dn, O and I3")
 		sys.exit(-1)
 	
 	(options, args)=parser.parse_args()
@@ -319,11 +329,11 @@ def determin_symmetry(SYMMETRY):
 	if(a=="O"):
 		sym_num=24
 	if(a=="I"):
-		b=int(SYMMETRY[1:]):
+		b=int(SYMMETRY[1:])
 		if(b==3):
 			sym_num=60
 		else:
-			print "I3 is the only supported icosahedral symmetry."
+			print ("I3 is the only supported icosahedral symmetry.")
 	return (a,sym_num)
 OCT=[]
 for i in range (0,72):
